@@ -1,0 +1,48 @@
+{% include "menu_bar.html" %}
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<div class="container">
+  <h1 align='center';style="color:White;font-size:30px;">Model View</h1>  <br>
+  
+      
+      
+    {% if(name1=="insurance_train") %}
+            <h2 align='center';style="color:White;font-size:30px;">Feature Imporatance</h2>
+            <div class="row justify-content-center">
+                <img src="static/i_imp.png" width=800px/> </img>   
+            </div> <br><br>
+            <h2 align='center';style="color:White;font-size:30px;">Feature Comparision</h2>
+            <div class="row justify-content-center">
+                <img src="static/i_pair.png" width=800px/> </img>       
+            </div> 
+   
+    {% endif %}
+    {% if(name1=="housing_train") %}
+           <h2 align='center';style="color:White;font-size:30px;">Feature Imporatance</h2>
+           <div class="row justify-content-center">
+               <img src="static/h_imp.png" width=800px/> </img>   
+           </div> <br><br>
+           <h2 align='center';style="color:White;font-size:30px;">Feature Comparision</h2>
+           <div class="row justify-content-center">
+              <img src="static/h_pair.png" width=800px/> </img>       
+           </div> 
+       
+    {% endif %}
+    {% if(name1=="fraud_train") %}
+           <h2 align='center';style="color:White;font-size:30px;">Feature Imporatance</h2>
+           <div class="row justify-content-center">
+               <img src="static/f_imp.png" width=800px/> </img>   
+           </div> <br><br>
+           <h2 align='center';style="color:White;font-size:30px;">Feature Comparision</h2>
+           <div class="row justify-content-center">
+               <img src="static/f_pair.png" width=800px/> </img>       
+           </div> 
+       
+    {% endif %}
+      
+      
+      
+      
+</div> 

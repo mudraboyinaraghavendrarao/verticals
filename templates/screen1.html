@@ -1,0 +1,44 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html >
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<body class="bg-light">
+    <div class="container text-center">
+      <div style="width: 100%;    max-width: 500px;    padding: 15px;    margin: auto;">
+       <br><br> 
+         <h2 align='center';style="color:White;font-size:30px;">Please upload your Data</h2>   
+    
+            <form action = "/azure2" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+               <input type="file" accept=".pdf" name="file" class='form-control' />
+               <input type = "submit" value="Upload" class="form-control btn btn-s btn-primary "> 
+          
+            </form>  
+             <br><br>   
+         
+<p align="center">For sample file:<p>
+<p align="center">
+<a href= "{{ url_for('static',filename='ocr_samples/Sample1.pdf') }}" download> Sample1 </a>
+<a href= "{{ url_for('static',filename='ocr_samples/Sample2.pdf') }}" download> Sample2 </a>
+<a href= "{{ url_for('static',filename='ocr_samples/Sample3.pdf') }}" download> Sample3 </a>
+<a href= "{{ url_for('static',filename='ocr_samples/Sample4.pdf') }}" download> Sample4 </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                           
+<p>
+ 
+
+
+</div>
+</div>
+
+</html>

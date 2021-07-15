@@ -1,0 +1,103 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="jumbotron text-center" height="20px">
+  <h2>Natural Language Processing
+</h2>
+  
+</div>
+  
+<div class="container">
+  <div class="row">
+      
+            <div class="col-sm-3">
+              <div class="card" style="width: 18rem;height:22rem">
+               <img src="{{ url_for('static',filename='images/translator.png') }}" height="150" class="card-img-top" >  
+                <div class="card-body">
+                  <h5 class="card-title">Translator</h5>
+                  <p class="card-text">Detect and translate more than 60 supported languages.</p>
+                  <a href="/text_translator" class="stretched-link"></a>
+                </div>
+        	  </div>
+            </div>
+       
+           <div class="col-sm-3">
+             <div class="card" style="width: 18rem;height:22rem"> 
+             <img src="{{ url_for('static',filename='images/sentiment.png') }}" height="150" class="card-img-top" > 
+              <div class="card-body">
+                <h5 class="card-title">Sentiment Analysis</h5>
+                <p class="card-text">Sentiment analysis refers to the use of natural language processing, text analysis, computational linguistics, extract, quantify, and subjective information.</p>
+                <a href="/text_sentiment" class="stretched-link"></a>
+              </div>
+            </div>
+           </div> 
+           
+           <div class="col-sm-3">
+             <div class="card" style="width: 18rem;height:22rem"> 
+             <img src="{{ url_for('static',filename='images/text_summarizer.png') }}" height="150" class="card-img-top" > 
+              <div class="card-body">
+                <h5 class="card-title">Text Summarization</h5>
+                <p class="card-text">Text summarization refers to the technique of shortening long pieces of text. The intention is to create a coherent and fluent summary having only the main points outlined in the document.</p>
+                <a href="/text_summarizer" class="stretched-link"></a>
+              </div>
+            </div>
+           </div>
+           
+           <div class="col-sm-3">
+             <div class="card" style="width: 18rem;height:22rem"> 
+             <img src="{{ url_for('static',filename='images/text_analyser.png') }}" height="150" class="card-img-top" > 
+              <div class="card-body">
+                <h5 class="card-title">Text Analyser</h5>
+                <p class="card-text">Text Analyser refers to the technique of shortening long pieces of text. The intention is to create a coherent and fluent summary having only the main points outlined in the document.</p>
+                <a href="/text_analyser" class="stretched-link"></a>
+              </div>
+            </div>
+           </div>
+           
+              
+  </div>
+  <br>
+    <div class="row">
+           
+            <div class="col-sm-3">
+              <div class="card" style="width: 18rem;height:20rem">  
+              <img src="{{ url_for('static',filename='images/text_speech.png') }}" height="150" class="card-img-top" >
+                <div class="card-body">
+                  <h5 class="card-title">Text to Speech</h5>
+                  <p class="card-text">Convert text to lifelike speech for more natural interfaces.</p>
+                  <a href="/text_speech" class="stretched-link"></a>
+                </div>
+        	  </div>
+            </div>
+       
+           <div class="col-sm-3">
+             <div class="card" style="width: 18rem;height:20rem"> 
+             <img src="{{ url_for('static',filename='images/speech_text.png') }}" height="150" class="card-img-top" > 
+              <div class="card-body">
+                <h5 class="card-title">Speech to Text</h5>
+                <p class="card-text">Transcribe audible speech into readable, searchable text.</p>
+                <a href="/speech_text" class="stretched-link"></a>
+              </div>
+            </div>
+           </div>   
+           
+           <div class="col-sm-2">
+   </div>
+           
+  </div>
+  
+     
+</div>
+
+</body>
+</html>
+

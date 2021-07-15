@@ -1,0 +1,181 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<br>
+
+<div class="container">
+	<section class="jumbotron text-center">
+	<div class="row">
+		<div class="col-sm-6">
+		<h1 class="jumbotron-heading">{{gv_title | safe}} </h1>
+          <p class="lead text-black">
+            
+            <p>{{gv_description | safe}}</p></p>
+          
+         
+		</div>
+
+		<div class="col-sm-6">
+			<div class="container">
+				<form action = "/g_vision2" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+                   <h3 align='center'>Upload Image</h3><br>
+                	<input type="file" accept=".jpg,.jpeg,.png"  name="file" class='form-control' required="required">
+                    <input type = "submit" value="Upload" class="form-control btn btn-s btn-primary ">                           
+                </form> 
+                
+                <p align="center">For sample Image:<a href= "{{ url_for('static',filename=v_sample_uri) }}" download> click </a><p>
+                
+
+<br><br><br>
+        
+        {% if l1 %}                     
+            <table class="table" cellpadding="10">  
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Confidence</th>                  
+                  </tr>
+                </thead> 
+                {% for gv_l1 in l1 %}
+                    <tbody>                                          
+                        <tr> 
+                            <td style="width: 35%">{{gv_l1[0] | safe}}</td>                                                             
+                            <td>{{gv_l1[1] | safe}}</td>
+                        </tr>                                          
+                    </tbody>
+                {% endfor %}    
+            </table>          
+        {% endif %}
+        
+        {% if l2 %}
+                  <h3 align='center'>Detected Text:</h3><br>
+                   {{l2 | safe}}                 
+        {% endif %}
+        
+        {% if l3 %}                     
+            <table class="table" cellpadding="10">  
+                <thead>
+                  <tr>
+                    <th>Landmark</th>
+                    <th>Location</th>                  
+                  </tr>
+                </thead> 
+                {% for gv_l3 in l3 %}
+                    <tbody>                                          
+                        <tr> 
+                            <td style="width: 35%">{{gv_l3[0] | safe}}</td>                                                             
+                            <td>{{gv_l3[1] | safe}}</td>
+                        </tr>                                          
+                    </tbody>
+                {% endfor %}    
+            </table>          
+        {% endif %}    
+        
+        {% if l4 %}                     
+            <table class="table" cellpadding="10">  
+                <thead>
+                  <tr>
+                    <th>Logo</th>
+                    <th>Confidence</th>                  
+                  </tr>
+                </thead> 
+                {% for gv_l4 in l4 %}
+                    <tbody>                                          
+                        <tr> 
+                            <td style="width: 35%">{{gv_l4[0] | safe}}</td>                                                             
+                            <td>{{gv_l4[1] | safe}}</td>
+                        </tr>                                          
+                    </tbody>
+                {% endfor %}    
+            </table>          
+        {% endif %}     
+        
+        {% if l5 %}                    
+                <table class="table" cellpadding="10">  
+                    <thead>
+                      <tr>
+                        <th>Safe Search</th>
+                        <th>Status</th>                  
+                      </tr>
+                    </thead>
+                    {% for gv_l5_k,gv_l5_v in l5.items() %} 
+                        <tbody>                                          
+                            <tr> 
+                                <td style="width: 35%">{{gv_l5_k | safe}}</td>                                                             
+                                <td>{{gv_l5_v | safe}}</td>
+                            </tr>                                          
+                        </tbody>
+                    {% endfor %}  
+                </table>          
+        {% endif %}
+        
+        {% if l6 %}                    
+                <table class="table" cellpadding="10">  
+                    <thead>
+                      <tr>
+                        <th>Emotion</th>
+                        <th>Status</th>                  
+                      </tr>
+                    </thead>
+                    {% for gv_l6_k,gv_l6_v in l6.items() %} 
+                        <tbody>                                          
+                            <tr> 
+                                <td style="width: 35%">{{gv_l6_k | safe}}</td>                                                             
+                                <td>{{gv_l6_v | safe}}</td>
+                            </tr>                                          
+                        </tbody>
+                    {% endfor %}  
+                </table>          
+        {% endif %}
+                
+        {% if l7 %}
+        
+            <h3 align='center'>Best guess label:</h3>{{l7[0] | safe}}  <br><br>
+            <h3 align='center'>{{l7[1] | safe}}</h3>  <br>
+            
+            {% for i in range(2,12) %}
+                                        
+                <table class="table" cellpadding="10">   
+                    <tbody>                                          
+                        <tr> 
+                           <p>Page URL:<a href={{l7[i] | safe}}>{{l7[i] | safe}}</a></p>
+                        </tr>                                          
+                    </tbody>
+                </table>
+                                        	      
+            {% endfor %}                         
+        {% endif %}
+        
+        {% if l8 %}
+            <img src="{{ l8 }}" style="width:300px;">                                    
+        {% endif %}
+        
+        {% if l9 %}
+            <h3 align='center'>Generated Caption:</h3><br>
+            {{l9 | safe}}                                  
+        {% endif %}
+        
+        {% if l10 %}
+            <img src="{{ l10 }}" style="width:45-0px;">                               
+        {% endif %}
+
+    </div>
+		</div>
+	</div>
+</section>
+
+</div>	
+	<!-- form area -->
+	
+
+</div>	
+</body>
+</html>

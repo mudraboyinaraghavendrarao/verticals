@@ -1,0 +1,67 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="bg-light"> 
+<div class="container"> 
+<br>  
+    <h1 align="center">Upload your data for analytics</h1>
+      
+         <div class="row"> 
+              <div class="col-sm-1" align="center">
+             </div> 
+              
+             <div class="col-sm-5" align="center">   
+             
+                 <form action = "/predict_view2" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+                     
+                     <h3 align="center">Single Record</h3> <br>
+                                                   
+                        {% for mod in df_columns %}
+                                        
+                            <table class="table" cellpadding="10">   
+                                <tbody>                                          
+                                    <tr>                                
+                                    <td><input type="text" name="{{mod}}" class='form-control' placeholder="{{mod}}" required="required" /></td>
+                                    </tr>                                          
+                                </tbody>
+                            </table>
+                                        	      
+                        {% endfor %}
+              
+                           
+                            <h3 align='center'>
+                            <input type = "submit" value="Predict" class="form-control btn btn-s btn-primary"></h3>     
+                               
+                  
+                    <br>
+                        <h3 align='center'> {{prediction_text}} </h3> 
+                     
+                 </form>         	 
+             </div>
+             
+             <div class="col-sm-5">
+             	 <form action = "/predict_view" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+                   <h3 align='center'>Multiple Records</h3><br>
+                	<input type="file" accept=".csv,.xls"  name="file" class='form-control' />
+                    <input type = "submit" value="Upload" class="form-control btn btn-s btn-primary ">                           
+                </form> 
+                
+                <p align="center">For sample file:<a href= "{{ url_for('static',filename='csv_samples/Insurance Claim Prediction.csv') }}" download> click </a><p>
+                <p align="center"><b>Note:</b> The download attribute is not supported in Edge version 12, IE, Safari 10 (and earlier), or Opera version 12 (and earlier).</p>
+                
+                
+             </div>       
+         </div>
+<br>
+
+</div>
+</body>
+</html>

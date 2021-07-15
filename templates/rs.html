@@ -1,0 +1,159 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html >
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+div {
+  margin-bottom: 15px;
+  padding: 1px 12px;
+}
+
+.info {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196F3;
+}
+</style>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: -80;
+   background-color: #111;
+  
+}
+
+.right {
+  right: 0;
+ background-color: #111;
+}
+
+.btn-group button {
+  background-color: #4CAF50; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+.centered {
+  position: absolute;
+  top: 52%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.r_top_10 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+body {font-family: Arial;}
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+
+</style>
+</head>
+
+
+<body>
+<br><br><br><br><br>
+ <div 
+	<h1 align='center'>Recommendation System</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+        
+  
+    <form action = "/recommendations" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+   <h2 align='center'</h2>
+	   <input type="text" name="tablate"  required="required" class='form-control'/>
+       <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+          
+    </form> 
+   <br>
+   <br>
+  <table align='center'>
+  
+    {% if condi %}
+        {{ condi }}
+        
+        {% for index,row in data5.iterrows() %}
+                <tr>
+                    <td>{{ row["drugName"] }}</td>                
+                </tr>
+                    
+        {% endfor %}
+       
+    {% endif %}
+
+  </table>
+ </div>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<title>SAIS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container" style="background-color:LightGray;">
+<h1 align= 'center' >Text</h1>
+ <br>
+<p style="background-color:Tomato;">
+{{text}}
+</p>
+<br>
+
+<br><h2 align= 'center' >Sentiment</h2>
+<div class="w3-light-grey">
+    <div id="myBar" class="w3-green" style="height:24px;width:0%">{{value}}</div>
+</div>
+    
+    <button class="w3-button w3-green" align= 'center' onclick="move({{value}})" >Click Me</button> 
+</div>
+
+<script>
+function move(value) {
+  var elem = document.getElementById("myBar");   
+  var width = value;
+  elem.style.width = width + '%';
+}
+</script>
+
+</body>
+</html> 

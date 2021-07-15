@@ -1,0 +1,69 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SAIS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body class="bg-light">
+
+<div class="jumbotron text-center">
+  <h2>Advanced Analytics</h2>
+  
+</div>
+  
+<div class="container">
+  <div class="row">
+  
+    <div class="col-sm-3">
+      <div class="card" style="width: 18rem;height:22rem">  
+       <img src="{{ url_for('static',filename='images/prediction.png') }}" height="150" class="card-img-top" >
+        <div class="card-body">
+          <h5 class="card-title">Prediction</h5>
+          <p class="card-text">Making predictions by analyzing the relavent data.</p>
+          <a href="/prediction" class="stretched-link"></a>
+        </div>
+	  </div>
+    </div>
+    
+    <div class="col-sm-3">
+     <div class="card" style="width: 18rem;height:22rem">  
+      <img src="{{ url_for('static',filename='images/segmentation.png') }}" height="150" class="card-img-top" >
+      <div class="card-body">
+        <h5 class="card-title">Segmentation/Clustering</h5>
+        <p class="card-text">Analyze data and identify discrete groups of customers, sales transactions, or other types of behaviors and fraud things.</p>
+        <a href="/clustering" class="stretched-link"></a>
+      </div>
+     </div>
+   </div>
+   
+   <div class="col-sm-3">
+     <div class="card" style="width: 18rem;height:22rem"> 
+      <img src="{{ url_for('static',filename='images/forecasting.png') }}" height="150" class="card-img-top" > 
+      <div class="card-body">
+        <h5 class="card-title">Forecasting</h5>
+        <p class="card-text">Making predictions of the future based on past and present data and most commonly by analysis of trends.</p>
+        <a href="/forecasting" class="stretched-link"></a>
+      </div>
+     </div>
+   </div>
+   
+   <div class="col-sm-3">
+     <div class="card" style="width: 18rem;height:22rem">  
+     <img src="{{ url_for('static',filename='images/recommendation.png') }}" height="150" class="card-img-top" >
+      <div class="card-body">
+        <h5 class="card-title">Recommendations</h5>
+        <p class="card-text">Find recommendation solutions for various sectors such as retail and manufacturing</p>
+        <a href="/RS" class="stretched-link"></a>
+      </div>
+     </div>
+   </div> 
+    
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html >
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <body class="bg-light">
+    <div class="container text-center">
+  <div style="width: 100%;    max-width: 500px;    padding: 15px;    margin: auto;">
+   <br><br> 
+ <h2 align='center';style="color:White;font-size:30px;">Please upload your Data</h2>   
+    
+    <form action = "/sucess" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+   <h2 align='center'</h2>
+	<input type="file"  name="file" class='form-control' />
+    <input type = "submit" accept=".csv" value="Upload" class="form-control btn btn-s btn-primary "> 
+          
+    </form>  
+ <br><br>   
+ <div class="info">
+  <h5 align="left"<strong>NOTE:</strong></h5>
+<h6 align="left"> Please upload your data in .PDF file to process correctly.</h6> 
+</div>
+
+</div>
+</div>
+
+</html>

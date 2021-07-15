@@ -1,0 +1,117 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="bg-light"> 
+<div class="container"> 
+<br>  
+    <form action = "/g_vision1" method = "post" enctype="multipart/form-data">
+    <h1 align="center">Image Vision</h1>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Solution</th>
+            <th>Description</th>
+            <th>Preview link</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>1</td>
+            <td>Label Detection</td>
+            <td>The Label Detection can detect and extract information about entities in an image, across a broad group of categories. Labels can identify general objects, locations, activities, animal species, products, and more.</td>
+            <td><button type="submit" name="gv_1" value="gv_1" class="btn btn-primary" > Preview </button></td>
+            
+          </tr>
+          
+          <tr>
+            <td>2</td>
+            <td>Text Detection</td>
+            <td>Text Detection detects and extracts text from any image. For example, a photograph might contain a street sign or traffic sign.</td>
+            <td><button type="submit" name="gv_2" value="gv_2" class="btn btn-primary" > Preview </button></td>
+            
+          </tr>        
+          
+          <tr>
+            <td>3</td>
+            <td>Ladmark Detection</td>
+            <td>Landmark Detection detects popular natural and human-made structures within an image.</td>
+            <td><button type="submit" name="gv_3" value="gv_3" class="btn btn-primary" > Preview </button></td>
+            
+          </tr>
+          
+          <tr>
+            <td>4</td>
+            <td>Logo Detection</td>
+            <td>Logo Detection detects popular product logos within an image.</td>
+            <td><button type="submit" name="gv_4" value="gv_4" class="btn btn-primary" > Preview </button></td>
+           
+          </tr>
+          
+           <tr>
+            <td>5</td>
+            <td>Safesearch Detection</td>
+            <td>SafeSearch Detection detects explicit content such as adult content or violent content within an image. This feature uses five categories (adult, spoof, medical, violence, and racy) and returns the likelihood that each is present in a given image.</td>
+            <td><button type="submit" name="gv_5" value="gv_5" class="btn btn-primary"> Preview </button></td>
+           
+          </tr>
+          
+           <tr>
+            <td>6</td>
+            <td>Emotion Detection</td>
+            <td>Emotion Detection detects the emotion of the person in the image. This feature uses four categories (joy, anger, sorrow, and surprise.) and returns the likelihood that each is present in a given image.</td>
+            <td><button type="submit" name="gv_6" value="gv_6" class="btn btn-primary" > Preview </button></td>
+            
+          </tr>
+          
+          <tr>
+            <td>7</td>
+            <td>Web Content Detection</td>
+            <td>Web Content Detection detects Web references to an image.</td>
+            <td><button type="submit" name="gv_7" value="gv_7" class="btn btn-primary" > Preview </button></td>
+            
+          </tr>
+          
+          <tr>
+            <td>8</td>
+            <td>Face Recognition</td>
+            <td>Face Recognition detects and recognize the faces in the image.</td>
+            <td><button type="submit" name="gv_8" value="gv_8" class="btn btn-primary" > Preview </button></td>
+            
+          </tr>
+          
+          <tr>
+            <td>9</td>
+            <td>Caption Generator</td>
+            <td>Caption Generator generates the content in the image.</td>
+            <td><button type="submit" name="gv_9" value="gv_9" class="btn btn-primary" > Preview </button></td>
+            
+          </tr>
+          
+          <tr>
+            <td>10</td>
+            <td>Human Pose Detection</td>
+            <td>Human Pose Detection detect the pose of a human in the image.</td>
+            <td><button type="submit" name="gv_10" value="gv_10" class="btn btn-primary" > Preview </button></td>
+            
+          </tr>
+         
+        </tbody>
+   </table> 
+    
+      
+     
+</div>
+</body>
+</html>

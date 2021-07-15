@@ -1,0 +1,59 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="bg-light"> 
+<div class="container"> 
+<br>  
+    <h3 align="center">Enter the following values to predict the forecast</h3>
+      <form action = "/forecast_view" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+                 
+         <div class="row">       
+             <div class="col-sm-4">
+                 <label>Date</label>
+                 <input type="text" name="date" class="form-control" placeholder="Date" required="required" />
+         	 </div>
+         	 <div class="col-sm-4">
+                 <label>Store</label>
+                 <input type="text" name="Store" class="form-control" placeholder="Store" required="required" />
+         	 </div>
+         	 <div class="col-sm-4">
+                 <label>Dept</label>
+                 <input type="text" name="Dept" class="form-control" placeholder="Dept" required="required" />
+         	 </div>         	 
+         </div>
+         <br>
+         <div class="row">
+             <input type = "submit" value="Predict" class="form-control btn btn-s btn-primary"></h2> 
+         </div>
+             
+      </form>          
+         
+<br>
+
+
+{% if vs_df %}
+
+      <div class="table-responsive" style="height: 300px;overflow: scroll;width:1100px;">
+        <table class="table table-hover">
+           {{vs_df | safe}}                                
+        </table>
+      </div>    
+       
+      <div align='center' >
+            {{fig9 | safe}}
+      </div>
+        
+{% endif %}
+
+
+</div>
+</body>
+</html>

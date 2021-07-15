@@ -1,0 +1,60 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head> 
+<body class="bg-light">
+<div class="container"> 
+<br>  
+    <h1 align="center">{{med_title}}</h1>
+      
+         <div class="row">       
+         <div class="col-sm-4">
+         	 
+         </div>
+         
+         <div class="col-sm-4">
+         	 <form action = "/medical3" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+               
+            	<input type="file" accept=".jpg,.png,.jpeg"  name="file" class='form-control' required="required" >
+                <input type = "submit" class="form-control btn btn-s btn-primary "> 
+                      
+            </form> 
+            
+            <p align="center">For sample file:<a href= "{{ f_list[0] }}" download> Sample1 </a>
+            <a href= "{{ f_list[5] }}" download> Sample2 </a>
+            <a href= "{{ f_list[10] }}" download> Sample3 </a>
+            <a href= "{{ f_list[15] }}" download> Sample4 </a>
+            <p>
+                <p align="center"><b>Note:</b> The download attribute is not supported in Edge version 12, IE, Safari 10 (and earlier), or Opera version 12 (and earlier).</p>
+                
+            
+         </div>
+                  
+     </div>
+     <br>
+     
+{% if prediction %}    
+<div class="row">   
+       
+         <div class="col-sm-4">         	 
+         </div> 
+         
+         <div class="col-sm-4">
+             {{prediction}}<br>
+             <image src="{{img_path}}" width="350px" height="300px" align="center">          <br>                   	 
+         </div>       
+</div>
+
+{% endif %} 
+
+
+
+</div>
+</body>

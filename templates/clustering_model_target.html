@@ -1,0 +1,102 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SAIS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="container"> 
+
+<form action = "/clustering_modelprocess" method = "post" enctype="multipart/form-data">  
+    <h1 align="center">AI & ML process management</h1>
+      
+         <div class="row">       
+             <div class="col-sm-4">
+                <label>	Select Columns for Clustering </label>
+                   <select id="Training_Columns" name="Training_Columns" multiple="multiple" class='form-control'>    
+                        <option value=""></option>
+                        {% for mod in columns %}
+                			<option value="{{mod}}">{{mod}}</option>       
+                		{% endfor %}
+                  </select> 
+             </div>
+             
+             <div class="col-sm-4"> 
+            	<label>Enter No.of clusters</label>
+            	<input type="text" name="clusters" class='form-control' placeholder="No.of clusters" required="required" />
+            </div>
+            
+            
+            <div class="col-sm-4">
+                <label>Select Model</label>
+            
+            	<select name="Model" class='form-control'>
+            		<option value="1">K-Means Clustering</option>
+                    <option value="2">Agglomerative Clustering</option>
+                    <option value="3">DBSCAN</option>
+                    
+                </select>
+           </div>           
+           
+        </div>
+        
+        <div class="row">  
+        
+            <div class="col-sm-4"> 
+            </div>
+            
+            <div class="col-sm-4">    
+                <h2 align='center'>
+                <input type = "submit" value="Build & Train Model" class="form-control btn btn-s btn-primary"></h2>     
+           </div>
+       </div>
+</form>
+
+<br>
+
+
+{% if df %}
+       
+      <div align='center'>
+          <h1 align="center">Cluster Importance</h1>
+           {{fig5 | safe}}
+      </div>
+      
+      <div class="row">  
+        
+            <div class="col-sm-3"> 
+            </div>
+            
+            <div class="col-sm-6">    
+               
+                 <div class="alert alert-success" align="left">
+                      <strong>Note:</strong>
+                      <ul>
+                      <li> Your model building and training is successfully completed</li>
+                      <li> Your model is ready for production deployment, please click download button
+to download package</li>
+                      <li> Please check your predictions by clicking preview button</li>
+                      </ul>
+                  </div> 
+                  <br> 
+       
+                <form action = "/clustering_predict" method = "post" enctype="multipart/form-data">  
+                        <h2 align='center'>
+                        <input type = "submit" value="Download" class="form-control btn btn-s btn-primary"></h2>                             
+                        <input type = "submit" value="Preview" class="form-control btn btn-s btn-primary"></h2>                             
+               </form>
+                     
+           </div>
+           <div class="col-sm-3"> 
+            </div>
+       </div>
+
+   
+{% endif %}
+
+</div>

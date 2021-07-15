@@ -1,0 +1,44 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+  </head> 
+  
+<body class="bg-light">  
+  <div class="container" align="center">
+      <h1 align="center">Sentiment Analysis</h1>
+      <br>
+         <div class="row">       
+             <div class="col-sm-4">
+             </div>
+                  
+         <div class="col-sm-4" align="center">
+               <form action="/sentiment" method="post" align='center'>
+                    <!-- Enter text to translate. -->
+                    <div class="form-group">
+                      <label ><strong>Enter the text you'd like to analyze Sentiment:</strong></label>
+                      <textarea name="text" class="form-control" rows="5"></textarea>
+                    </div>
+                    <!-- Select output language here. -->
+                    
+                    <button type="submit" class="btn btn-primary mb-2" id="translate" align="center">Run sentiment</button></br>
+                                         
+               </form>
+          <!-- Translated text returned by the Translate API is rendered here. -->
+         </div>
+        
+  </div>
+{% if sentiment %}
+     <p>Sentiment Analysis for the given phrase is--> {{sentiment}} , 25</p>  
+   
+{% endif %}
+
+   
+</body>
+</html>

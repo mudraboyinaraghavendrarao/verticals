@@ -1,0 +1,24 @@
+{% include "menu_bar.html" %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='dist/css/bootstrap.css') }}">
+  <body class="bg-light">
+    <div class="container">
+{% block content %}
+   <h1 align='center';style="color:White;font-size:30px;">Graphical View</h1>  
+
+
+
+    {% for key, value in figs1.items() %}
+		<h2 align='center'>{{key}}</h2>
+		<div style="display: flex; justify-content: center;">
+        <img src="data:image/png;base64, {{value}}" align='center'>
+		</div>
+	{% endfor %}
+<form action = "/Models" method = "post" enctype="multipart/form-data">  
+        <input type = "submit" value="Next" class="form-control btn btn-s btn-primary"></h2> 
+  </h2>
+</form> 	
+
+{% endblock %}
+
+</div>
+</div>

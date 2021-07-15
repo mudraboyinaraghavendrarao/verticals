@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<title>SAIS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+
+<div class="w3-container" style="background-color:LightGray;">
+<h2 align= 'center' >Text</h2>
+ <br>
+
+<p style="background-color:Tomato;">
+{{text}}
+</p>
+<br>
+<h1 align= 'center' >Audio</h1>
+<audio controls align= 'center'>
+   <source src="{{url_for('static', filename="welcome.wav")}}" type="audio/wav" >    
+</audio>
+
+</div>
+
+
+
+</body>
+</html> 

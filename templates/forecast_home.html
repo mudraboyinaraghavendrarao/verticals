@@ -1,0 +1,64 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="bg-light"> 
+<div class="container"> 
+<br>  
+    <h1 align="center">Please upload your Data</h1>
+      
+         <div class="row">       
+             <div class="col-sm-4">         	 
+             </div>
+             
+             <div class="col-sm-4">
+             	 <form action = "/forecast_sucess" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+                   
+                	<input type="file" accept=".csv,.xls"  name="file" class='form-control' required="required">
+                    <input type = "submit" value="Upload" class="form-control btn btn-s btn-primary ">                           
+                </form> 
+                
+                <p align="center">For sample file:<a href= "{{ url_for('static',filename='datasets/Forecast Data.csv') }}" download> click </a><p>
+                <p align="center"><b>Note:</b> The download attribute is not supported in Edge version 12, IE, Safari 10 (and earlier), or Opera version 12 (and earlier).</p>
+                
+                
+             </div>       
+         </div>
+<br>
+
+{% if description %}
+       <h2 align='center'>Data Summary</h1>
+       <div class="table-responsive">
+            <table class="table table-hover">
+            
+                {{description | safe}}
+            
+            </table>
+      </div>     
+      
+{% endif %}
+<br>
+{% if fig %}
+       
+      <div align='center' >
+            {{fig7 | safe}}
+      </div>
+      
+      <form action = "/forecast_models" method = "post" enctype="multipart/form-data">  
+            <h2 align='center'>
+            <input type = "submit" value="Next" class="form-control btn btn-s btn-primary"></h2>        
+      </form> 
+   
+{% endif %}
+
+
+</div>
+</body>
+</html>

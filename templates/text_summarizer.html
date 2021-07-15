@@ -1,0 +1,72 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+
+<br>
+
+<div class="container">
+	<section class="jumbotron text-center">
+	<div class="row">
+		<div class="col-sm-6">
+		<h1 class="jumbotron-heading">Text Summarization </h1>
+          <p class="lead text-black">
+            
+            <p>
+         Text summarization refers to the technique of shortening long pieces of text. The intention is to create a coherent and fluent summary having only the main points outlined in the document.</p></p>
+                   
+		</div>
+
+		<div class="col-sm-6">
+			<div class="container">
+				<form method="POST" action="/text_summarizer1">
+				<textarea name="message" class="form-control" cols="8" rows="8">Anderson is a man living two lives. By day he is an average computer programmer and by night a hacker known as Neo. Neo has always questioned his reality, but the truth is far beyond his imagination. Neo finds himself targeted by the police when he is contacted by Morpheus, a legendary computer hacker branded a terrorist by the government. Morpheus awakens Neo to the real world, a ravaged wasteland where most of humanity have been captured by a race of machines that live off of the humans' body heat and electrochemical energy and who imprison their minds within an artificial reality known as the Matrix. As a rebel against the machines, Neo must return to the Matrix and confront the agents: super-powerful computer programs devoted to snuffing out Neo and the entire human rebellion.</textarea>
+				<br>
+				<button class="btn btn-success" type="submit">Summarize</button>
+
+				<button style="margin-left: 10px;" class="btn btn-danger" type="reset">Reset</button>
+
+			</form>
+			<br>
+			
+			<p class="alert alert-warning">
+    			{% if err_message %}
+                        {{err_message | safe}}
+                {% endif %}
+            </p>
+
+
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<p class="alert alert-success">
+							{{ text_original }}
+						</p>
+					</div>
+					<div class="col-sm-6">
+						<p class="alert alert-warning">
+							{{ text_summarized }}
+						</p>
+					</div>
+				</div>
+			</div>
+
+</div>	
+	<!-- form area -->
+	
+</div>	
+</body>
+</html>

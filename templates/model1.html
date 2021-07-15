@@ -1,0 +1,50 @@
+{% include "menu_bar.html" %}
+
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='dist/css/bootstrap.css') }}">
+  <body class="bg-light">
+    <div class="container  ">
+{% block content %}
+
+
+<h1 align='center';style="color:White;font-size:30px;">Predict your Data</h1>  <br>
+<form class="form-models" method="post" action='/modelprocess'>
+  <div class="row">
+ 	
+   <div class="col-sm-4">
+<label>	Select Columns for Training </label>
+   <select id="Training_Columns" name="Training_Columns" multiple="multiple" class='form-control'>    
+        <option value=""></option>
+        {% for mod in columns %}
+			<option value="{{mod}}">{{mod}}</option>       
+		{% endfor %}
+    </select> </div>
+       <div class="col-sm-3"> 
+	<label>Select Column for Target</label>
+	<select name="Target_column" class='form-control'>
+		<option value=""></option>
+        {% for mod in columns %}
+			<option value="{{mod}}">{{mod}}</option>       
+		{% endfor %}
+	</select>
+</div>
+       <div class="col-sm-5">
+    <label>Select Model</label>
+
+	<select name="Model" class='form-control'>
+		<option value="1">Gradient Boosting Estimator</option>
+        <option value="2">XGBoost Estimator</option>
+        <option value="3">KMeans Estimator</option>
+	</select>
+	</div>
+   </div>
+  
+  <br>
+  
+
+  <input type = "submit" value="Submit" class="form-control btn btn-s btn-primary"></h2> 
+
+</form>
+
+{% endblock %}
+
+  </div>  </div>

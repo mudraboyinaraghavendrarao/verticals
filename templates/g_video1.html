@@ -1,0 +1,185 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<br>
+
+<div class="container">
+	<section class="jumbotron text-center">
+	<div class="row">
+		<div class="col-sm-6">
+		<h1 class="jumbotron-heading">{{gvideo_title | safe}} </h1>
+          <p class="lead text-black">
+            
+            <p>{{gvideo_description | safe}}</p></p>
+          
+         
+		</div>
+
+		<div class="col-sm-6">
+			<div class="container">
+				<form action = "/g_video2" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+                   <h3 align='center'>Upload Video</h3><br>
+                	<input type="file" accept=".mp4"  name="file" class='form-control' required="required">
+                    <input type = "submit" value="Upload" class="form-control btn btn-s btn-primary ">                           
+                </form> 
+                
+                <p align="center">For sample Video:<a href= "{{ url_for('static',filename='video_ai.mp4') }}" download> click </a><p>
+                
+
+<br><br><br>
+        
+        {% if z1 %}                    
+                <table class="table" cellpadding="10">  
+                    <thead>
+                      <tr>
+                        <th>Emotion</th>
+                        <th>Status</th>                  
+                      </tr>
+                    </thead>
+                    {% for gvideo_z1_k,gvideo_z1_v in z1.items() %} 
+                        <tbody>                                          
+                            <tr> 
+                                <td style="width: 35%">{{gvideo_z1_k | safe}}</td>                                                             
+                                <td>{{gvideo_z1_v | safe}}</td>
+                            </tr>                                          
+                        </tbody>
+                    {% endfor %}  
+                </table>          
+        {% endif %}
+        
+        {% if z2 %}                    
+                <table class="table" cellpadding="10">  
+                    <thead>
+                      <tr>
+                        <th>Emotion</th>
+                        <th>Status</th>                  
+                      </tr>
+                    </thead>
+                    {% for gvideo_z2_k,gvideo_z2_v in z2.items() %} 
+                        <tbody>                                          
+                            <tr> 
+                                <td style="width: 35%">{{gvideo_z2_k | safe}}</td>                                                             
+                                <td>{{gvideo_z2_v | safe}}</td>
+                            </tr>                                          
+                        </tbody>
+                    {% endfor %}  
+                </table>          
+        {% endif %}
+        
+        {% if z3 %}                    
+                <table class="table" cellpadding="10">  
+                    <thead>
+                      <tr>
+                        <th>Emotion</th>
+                        <th>Status</th>                  
+                      </tr>
+                    </thead>
+                    {% for gvideo_z3_k,gvideo_z3_v in z3.items() %} 
+                        <tbody>                                          
+                            <tr> 
+                                <td style="width: 35%">{{gvideo_z3_k | safe}}</td>                                                             
+                                <td>{{gvideo_z3_v | safe}}</td>
+                            </tr>                                          
+                        </tbody>
+                    {% endfor %}  
+                </table>          
+        {% endif %}
+        
+        {% if z4 %}                    
+                <table class="table" cellpadding="10">  
+                    <thead>
+                      <tr>
+                        <th>Emotion</th>
+                        <th>Status</th>                  
+                      </tr>
+                    </thead>
+                    {% for gvideo_z4_k,gvideo_z4_v in z4.items() %} 
+                        <tbody>                                          
+                            <tr> 
+                                <td style="width: 35%">{{gvideo_z4_k | safe}}</td>                                                             
+                                <td>{{gvideo_z4_v | safe}}</td>
+                            </tr>                                          
+                        </tbody>
+                    {% endfor %}  
+                </table>          
+        {% endif %}
+        
+        {% if z5 %}                    
+                <table class="table" cellpadding="10">  
+                    <thead>
+                      <tr>
+                        <th>Emotion</th>
+                        <th>Status</th>                  
+                      </tr>
+                    </thead>
+                    {% for gvideo_z5_k,gvideo_z5_v in z5.items() %} 
+                        <tbody>                                          
+                            <tr> 
+                                <td style="width: 35%">{{gvideo_z5_k | safe}}</td>                                                             
+                                <td>{{gvideo_z5_v | safe}}</td>
+                            </tr>                                          
+                        </tbody>
+                    {% endfor %}  
+                </table>          
+        {% endif %}
+        
+        {% if z6 %}                    
+                <table class="table" cellpadding="10">  
+                    <thead>
+                      <tr>
+                        <th>Emotion</th>
+                        <th>Status</th>                  
+                      </tr>
+                    </thead>
+                    {% for gvideo_z6_k,gvideo_z6_v in z6.items() %} 
+                        <tbody>                                          
+                            <tr> 
+                                <td style="width: 35%">{{gvideo_z6_k | safe}}</td>                                                             
+                                <td>{{gvideo_z6_v | safe}}</td>
+                            </tr>                                          
+                        </tbody>
+                    {% endfor %}  
+                </table>          
+        {% endif %}
+        
+        {% if z7 %}                    
+                <table class="table" cellpadding="10">  
+                    <thead>
+                      <tr>
+                        <th>Emotion</th>
+                        <th>Status</th>                  
+                      </tr>
+                    </thead>
+                    {% for gvideo_z7_k,gvideo_z7_v in z7.items() %} 
+                        <tbody>                                          
+                            <tr> 
+                                <td style="width: 35%">{{gvideo_z7_k | safe}}</td>                                                             
+                                <td>{{gvideo_z7_v | safe}}</td>
+                            </tr>                                          
+                        </tbody>
+                    {% endfor %}  
+                </table>          
+        {% endif %}
+        
+        
+
+    </div>
+		</div>
+	</div>
+</section>
+
+</div>	
+	<!-- form area -->
+	
+
+</div>	
+</body>
+</html>

@@ -1,0 +1,66 @@
+{% include "menu_bar.html" %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='dist/css/bootstrap.css') }}">
+  <body class="bg-light">
+    <div class="container">
+{% block content %}
+<div class="container">
+ 
+<form class="form-models" method="post" action="/graphprocess">
+
+   <h1 align='center';style="color:White;font-size:30px;">Analyse your data in a Graphical View</h1> 
+   <br><br>
+      <h3 align='center';style="color:White;font-size:30px;">Choose variables to analyze your data</h3> 
+      <br>
+   
+
+   
+  <div class="row">
+  <div class="col-sm-4">
+	 <h3 align="center";style="color:White;font-size:30px;">Histogram</h3>
+
+	 <label>Variable </label>
+	<select name="histogram">
+		<option value=""></option>
+        {% for mod in columns %}
+			<option value="{{mod}}">{{mod}}</option>       
+		{% endfor %}
+	</select>
+	</div>
+	
+ 
+   <div class="col-sm-8">
+    <h3 align="center";style="color:White;font-size:30px;">BoxPLot</h3>	
+    
+  <div class="row">
+   	  	
+  <div class="col-sm-6">
+
+<label>	X-axis Variable. </label>
+	<select name="boxplotcat">Categorical Variable:
+		<option value=""></option>
+        {% for mod in columns %}
+			<option value="{{mod}}">{{mod}}</option>       
+		{% endfor %}
+	</select> 
+</div>	
+
+		   <div class="col-sm-6"> 
+	<label>Y-axis Variable </label>
+	<select name="boxplotnum">
+		<option value=""></option>
+        {% for mod in columns %}
+			<option value="{{mod}}">{{mod}}</option>       
+		{% endfor %}
+	</select>
+	</div>
+	</div>
+	</div>
+  </div>
+  <br>
+     <input type = "submit" value="Next" class="form-control btn btn-s btn-primary"></h2> 
+
+</form>
+ 
+</div>
+{% endblock %}
+</div></div>

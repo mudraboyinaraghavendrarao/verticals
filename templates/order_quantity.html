@@ -1,0 +1,60 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="bg-light"> 
+<div class="container"> 
+<br>  
+    <h3 align="center">{{vs_title}}</h3>
+      <form action = "/order_quantity" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+                 
+         <div class="row"> 
+         
+             <div class="col-sm-3">
+             </div>        
+             <div class="col-sm-3">
+                 <label>Date</label>
+                 <input type="text" name="date" class="form-control" placeholder="DD/MM/YYYY" required="required" />
+         	 </div>
+           	 <div class="col-sm-3">
+                 <label>Product Code</label>
+                 <input type="text" name="Product_Code" class="form-control" placeholder="704 to 704" required="required" />
+         	 </div>
+         	 <div class="col-sm-3">
+             </div>         	 
+         </div>
+         <br>
+         <div class="row">
+             <input type = "submit" value="Predict" class="form-control btn btn-s btn-primary"></h2> 
+         </div>
+             
+      </form>          
+         
+<br>
+
+
+{% if vs_df %}
+
+      <div class="table-responsive" style="height: 300px;overflow: scroll;width:1100px">
+        <table class="table table-hover">
+           {{vs_df | safe}}                                
+        </table>
+      </div>    
+       
+      <div align='center' >
+            {{fig_vs | safe}} 
+      </div>
+        
+{% endif %}
+
+
+</div>
+</body>
+</html>

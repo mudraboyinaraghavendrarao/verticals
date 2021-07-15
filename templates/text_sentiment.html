@@ -1,0 +1,68 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+
+<br>
+
+<div class="container">
+	<section class="jumbotron text-center">
+	<div class="row">
+		<div class="col-sm-6">
+		<h1 class="jumbotron-heading">Sentiment Analysis </h1>
+          <p class="lead text-black">
+            
+            <p>
+          Sentiment analysis refers to the use of natural language processing, text analysis, computational linguistics, and biometrics to systematically identify, extract, quantify, and study affective states and subjective information.</p></p>
+          
+         
+		</div>
+
+		<div class="col-sm-6">
+			<div class="container">
+				<form method="POST" action="/text_sentiment1">
+				<textarea name="message" class="form-control" cols="8" rows="8">SAIS is a leading provider of enterprise solutions and services that strategically harness the power of Information and Engineering Technology to help customers maximize their business value in the new economy.</textarea>
+				<br>
+				<button class="btn btn-success" type="submit">Analysis</button>
+
+				<button style="margin-left: 10px;" class="btn btn-danger" type="reset">Reset</button>
+
+			</form>
+			<br>
+
+			<div class="container">
+				{% if sentiment == "Positive" %}
+					<div class="container">
+						<p class="alert alert-success"><b>Positive Sentiment</b></p>
+					</div>
+				{% elif sentiment == "Negative" %}
+					<div class="container">
+						<p class="alert alert-danger"><b>Negetive Sentiment</b></p>
+					</div>
+				{% elif sentiment == "Neutral" %}
+					<div class="container">
+						<p class="alert alert-info"><b>Neutral</b></p>
+					</div>
+				{% endif %}
+			</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+</div>	
+	<!-- form area -->
+	
+
+</div>	
+</body>
+</html>
+

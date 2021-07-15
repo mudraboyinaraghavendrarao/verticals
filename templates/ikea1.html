@@ -1,0 +1,28 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="bg-light">
+ <br>
+<div class="container" align="center">
+    <form action = "/ikea2" method = "post" enctype="multipart/form-data"> 
+      <h1 align="center">{{re_title}}</h1>
+     <br>
+            {%for i in range(0,re_length)%}
+                  <button type="submit" name="submit_button" value="{{i}}" ><img src="{{url_for('static', filename=files1[i])}}" width="198px" height="200px"></button>
+            {%endfor%}  
+            
+       <br>
+    </form>  
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html >
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+
+<body class="bg-light">
+<br><br>
+ <div class="container">
+	<h1 align='center'>Recommendation System</h1>
+      <div class="row">       
+         <div class="col-sm-4">
+         </div>
+     <!-- Main Input For Receiving Query to our ML -->
+        
+  <div class="col-sm-4">
+    <form action = "/recommendations" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+   <h2 align='center'</h2>
+	   <input type="text" name="tablate"  required="required" class='form-control'/>
+       <button type="submit" class="btn btn-primary btn-block btn-large">Recommend</button>
+          
+    </form> 
+   <br>
+   
+  <table class="table table-bordered" align='center'>
+  
+    {% if condi %}
+                     
+         <thead>
+              <tr align="center">
+                 <th scope="col">Drugs</th>
+              </tr>
+        </thead>
+        
+        {% for index,row in data5.iterrows() %}
+        <tbody>
+                <tr align="center">
+                    <td><h2>{{ row["drugName"] }} </h2></td>
+                                  
+                </tr>
+        </tbody>
+                    
+        {% endfor %}
+       
+    {% endif %}
+
+  </table>
+ </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body class="bg-light">
+ <br>
+<div class="container" align="center">
+    <form action = "/ikea2" method = "post" enctype="multipart/form-data"> 
+      <h1 align="center">{{re_title}}</h1>
+       <br>
+      <div class="row">
+        
+          <div class="col-sm-4">
+          </div>
+          
+          <div class="col-sm-4">
+              <image src="{{url_for('static', filename=given_img)}}" width="350px" height="300px" align="center">     
+          </div>
+          
+      </div>
+      
+      <br>
+      
+      <div class="row"> 
+      <h2>Products similar to this item:</h2> 
+      </div>
+            
+      <br>
+      
+      <div class="row"> 
+          {%for i in range(0,5)%} 
+             <image src="{{url_for('static', filename=closest_imgs[i])}}" width="226px" height="200px">               
+          {%endfor%}
+      </div>      
+      <br>
+      
+    </form>  
+</div>
+
+</body>
+
+
+
+</html>

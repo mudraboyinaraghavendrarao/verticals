@@ -1,0 +1,114 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SAIS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+
+<body>
+<br> 
+<div class="container">
+
+  <h1 align="center">Healthcare</h1>
+<br>  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Solution</th>
+        <th>Description</th>
+        <th>Preview link</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody>
+  <form action = "/medical1" method = "post" enctype="multipart/form-data">     
+      <tr>
+        <td>1</td>
+        <td>MRI Brain Tumor Detection</td>
+        <td>This solutions assist the medical team by detecting the type of brain tumor and its class.</td>
+        <td><button type="submit" name="Medical1" value="Medical1" class="btn btn-primary" > Preview </button></td>
+        <td><button type="submit" name="Medical1" value="Medical1" class="btn btn-primary" disabled="disabled" > Download </button></td>
+    
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>CT Lung Cancer Detection</td>
+        <td>This solution helps the medical team by detecting the type of lung cancer and its class.</td>
+        <td><button type="submit" name="Medical2" value="Medical2" class="btn btn-primary" > Preview </button></td>
+        <td><button type="submit" name="Medical2" value="Medical2" class="btn btn-primary" disabled="disabled"> Download </button></td>
+     
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>X-Ray Pneumonia Detection</td>
+        <td>This solution helps the medical team by detecting pneumonia and which class it belongs to.</td>
+        <td><button type="submit" name="Medical3" value="Medical3" class="btn btn-primary" disabled="disabled"> Preview </button></td>
+        <td><button type="submit" name="Medical3" value="Medical3" class="btn btn-primary" disabled="disabled"> Download </button></td>
+     
+      </tr> 
+   </form>  
+   
+   <form action = "/vs1" method = "post" enctype="multipart/form-data"> 
+   
+       <tr>
+        <td>4</td>
+        <td>Insurance Claim Prediction</td>
+        <td>This solution helps users to predict whether, based on their health stats, they will claim insurance or not.</td>
+        <td><button type="submit" name="Insurance_Claim1" value="Insurance_Claim1" class="btn btn-primary" > Preview </button></td>
+        <td><button type="submit" name="Insurance_Claim1" value="Insurance_Claim1" class="btn btn-primary" disabled="disabled" > Download </button></td>
+     
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>Diabetes Prediction</td>
+        <td>This solution allows patients, depending on their health statistics, to predict diabetes.</td>
+        <td><button type="submit" name="Insurance_Claim2" value="Insurance_Claim2" class="btn btn-primary" > Preview </button></td>
+        <td><button type="submit" name="Insurance_Claim2" value="Insurance_Claim2" class="btn btn-primary" disabled="disabled"> Download </button></td>
+     
+      </tr>      
+      
+      <tr>
+        <td>6</td>
+        <td>Appointment No show</td>
+        <td>This solution assists the hospital management by predicting whether the patient will be able to make appointment or not.</td>
+        <td><button type="submit" name="Insurance_Claim9" value="Insurance_Claim9" class="btn btn-primary"> Preview </button></td>
+        <td><button type="submit" name="Insurance_Claim9" value="Insurance_Claim9" class="btn btn-primary" disabled="disabled"> Download </button></td>
+     
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>Hospital Readmission</td>
+        <td>This solution helps the management of the hospital by predicting the patients that will be readmitted to the hospital.</td>
+        <td><button type="submit" name="Insurance_Claim11" value="Insurance_Claim11" class="btn btn-primary" > Preview </button></td>
+        <td><button type="submit" name="Insurance_Claim11" value="Insurance_Claim11" class="btn btn-primary" disabled="disabled"> Download </button></td>
+     
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>Breast Cancer Prediction</td>
+        <td>This solution helps the patient in analyzing if she is suffering from breast cancer,depending on her medical record.</td>
+        <td><button type="submit" name="Insurance_Claim8" value="Insurance_Claim8" class="btn btn-primary" > Preview </button></td>
+        <td><button type="submit" name="Insurance_Claim8" value="Insurance_Claim8" class="btn btn-primary" disabled="disabled"> Download </button></td>
+     
+      </tr>
+     
+    </tbody>
+  </table>
+
+</form>  
+</div>
+
+</body>
+
+</html>

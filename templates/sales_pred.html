@@ -1,0 +1,65 @@
+
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html >
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+
+<body class="bg-light">
+<br><br>
+ <div class="container">
+	<h1 align='center'>Future Sales Prediction</h1>
+      <div class="row">       
+         <div class="col-sm-4">
+         </div>
+     <!-- Main Input For Receiving Query to our ML -->
+        
+  <div class="col-sm-4">
+    <form action = "/forecast_predict" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+   <table align='center' cellpadding="10">	
+        <h2 align='center'>Single Response</h2>	
+        		
+        	<tr>
+                <td>Date:</td>
+        	<td><input type="text" name="date" class='form-control' placeholder="date" required="required" /></td></tr>
+        
+        	<tr>	
+        	<td>Department:</td>
+        	<td><input type="text" name="Dept" class='form-control' placeholder="Dept" required="required" /></td></tr>
+        	
+        	<tr>
+        	<td>Store:</td> 
+        	<td><input type="text" name="Store" class='form-control' placeholder="Store" required="required" /></td></tr>
+        	
+            <tr>
+        	<td>Size:</td>
+        	<td><input type="text" name="Size" class='form-control' placeholder="Size" required="required"/></td></tr>
+                <tr><td><button type="submit" class="btn btn-primary btn-block btn-large">Predict</button></td></tr>
+            
+        
+    </table>   
+    </form>
+   <br>
+   
+
+ </div>
+</div>
+<div class="row" align="center"> 
+  {% if dataframe %}
+            <div class="row justify-content-center" align="center">
+                <img src="static/sales_line.png" width=500px/> </img>
+            </div> 
+        {% endif %}
+</div>
+</body>
+</html>
+

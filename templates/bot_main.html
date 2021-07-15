@@ -1,0 +1,59 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h2>Bot Framework</h2>
+  
+</div>
+  
+<div class="container">
+  <div class="row">
+  
+    <div class="col-sm-4">
+      <div class="card" style="width: 18rem;height:22rem">  
+      <img src="{{ url_for('static',filename='images/bot_client.png') }}" height="150" class="card-img-top" >
+        <div class="card-body">
+          <h5 class="card-title">Bot Client</h5>
+          <p class="card-text">Perform tasks that are simple and repetitive, much faster than a person could.</p>
+          <a href="/bot_main" class="stretched-link"></a>
+        </div>
+	  </div>
+    </div>
+    
+    <div class="col-sm-4">
+     <div class="card" style="width: 18rem;height:22rem">  
+     <img src="{{ url_for('static',filename='images/bot_server.png') }}" height="150" class="card-img-top" >
+      <div class="card-body">
+        <h5 class="card-title">Bot Server</h5>
+        <p class="card-text">Builds SDK, API using AI algorithms for the bot services.</p>
+        <a href="bot_main" class="stretched-link"></a>
+      </div>
+     </div>
+   </div>
+   
+   <div class="col-sm-4">
+     <div class="card" style="width: 18rem;height:22rem">  
+     <img src="{{ url_for('static',filename='images/bot_plugin.png') }}" height="150" class="card-img-top" >
+      <div class="card-body">
+        <h5 class="card-title">AI Plugins</h5>
+        <p class="card-text">Utilizes artificial intelligence to integrate for generating automatic tasks and carry conversations with humans through different channels.</p>
+        <a href="bot_main" class="stretched-link"></a>
+      </div>
+     </div>
+   </div>
+   
+   
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head> 
+<body class="bg-light">
+<div class="container"> 
+<br>  
+    <h1 align="center">Image to Text</h1>
+      
+         <div class="row">       
+         <div class="col-sm-4">
+         	 
+         </div>
+         
+         <div class="col-sm-4">
+         	 <form action = "/image_text" method = "post" style="background:#f9f9f9 ;  padding:30px" class="text-center" enctype="multipart/form-data">  
+               <h2 align='center'</h2>
+            	<input type="file" accept=".jpg,.png,.jpeg"  name="file" class='form-control' />
+                <input type = "submit" value="Convert Image-to-Text"  class="form-control btn btn-s btn-primary "> 
+                      
+            </form> 
+         </div>
+         
+     
+         
+     </div>
+     <br>
+     
+{% if text %}    
+<div class="row">   
+       
+         <div class="col-sm-3">         	 
+         </div> 
+         
+         <div class="col-sm-6">
+         <h2 align="center">Text</h2><br>
+             {{text}}         	 
+         </div>       
+</div>
+
+{% endif %} 
+
+
+
+</div>
+</body>

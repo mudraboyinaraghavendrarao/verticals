@@ -1,0 +1,105 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='dist/css/bootstrap.css') }}">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 400px;
+  /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.b1 {
+    height: 800px;
+    background: linear-gradient(to bottom, #ffffff 0%,#9999ff 100%)
+}
+</style>
+</head>
+<div class="b1">
+<h3 align='left'>
+<h1 align='center'>Forecasting</h1>	
+<div class="row">
+  <div class="col-sm-2"> 
+  </div>
+<div class="col-sm-4">
+
+
+<body>
+ <div class="form">
+	 <!-- Main Input For Receiving Query to our ML -->
+    <form action="/predict1" method="post">
+
+<table align='center' >	
+<h2>Single Response</h2>	
+	
+	<tr>
+        <td>Date:</td>
+	<td><input type="text" name="date" class='form-control' placeholder="date" required="required" /></td></tr>
+
+	<tr>	
+	<td>Department:</td>
+	<td><input type="text" name="Dept" class='form-control' placeholder="Dept" required="required" /></td></tr>
+	
+	<tr>
+	<td>Store:</td> 
+	<td><input type="text" name="Store" class='form-control' placeholder="Store" required="required" /></td></tr>
+	
+    <tr>
+	<td>Size:</td>
+	<td><input type="text" name="Size" class='form-control' placeholder="Size" required="required"/></td></tr>
+        <tr><td><button type="submit" class="btn btn-primary btn-block btn-large">Predict</button></td></tr>
+    </form>
+
+   <br>
+   <br>
+   </table>
+
+	<br><br><h2 align="center"> {{ prediction_text }}</h2>
+
+</div>
+ </div>
+
+
+<div class="col-sm-1"> 
+</div>
+<div class="col-sm-4"> 
+<h2 >Multiple Response</h2>	
+
+<br>
+
+
+  <form action = "/predict2" method = "post" enctype="multipart/form-data">  
+   <h2 align='center'</h2>
+	<input type="file" name="file" class='form-control' /><br>
+<input type = "submit" value="Upload" class="form-control btn btn-s btn-primary ">                
+    </form> 
+</div>
+
+
+</div>
+</body>
+</h3>
+</div>
+</html>

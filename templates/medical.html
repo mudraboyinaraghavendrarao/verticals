@@ -1,0 +1,67 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SAIS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+<br> 
+<div class="container">
+<form action = "/medical1" method = "post" enctype="multipart/form-data"> 
+  <h1 align="center">Medical Diagnostics</h1>
+<br>  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Solution</th>
+        <th>Description</th>
+        <th>Preview link</th>
+        <th>Download</th>
+      </tr>
+    </thead>
+    <tbody>      
+      
+      <tr>
+        <td>1</td>
+        <td>MRI Brain Tumor Detection</td>
+        <td>This solutions assist the medical team by detecting the type of brain tumor and its class.</td>
+        <td><button type="submit" name="Medical1" value="Medical1" class="btn btn-primary" > Preview </button></td>
+        <td><button type="submit" name="Medical1" value="Medical1" class="btn btn-primary" disabled="disabled" > Download </button></td>
+    
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>CT Lung Cancer Detection</td>
+        <td>This solution helps the medical team by detecting the type of lung cancer and its class.</td>
+        <td><button type="submit" name="Medical2" value="Medical2" class="btn btn-primary" > Preview </button></td>
+        <td><button type="submit" name="Medical2" value="Medical2" class="btn btn-primary" disabled="disabled"> Download </button></td>
+     
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>X-Ray Pneumonia Detection</td>
+        <td>This solution helps the medical team by detecting pneumonia and which class it belongs to.</td>
+        <td><button type="submit" name="Medical3" value="Medical3" class="btn btn-primary" disabled="disabled"> Preview </button></td>
+        <td><button type="submit" name="Medical3" value="Medical3" class="btn btn-primary" disabled="disabled"> Download </button></td>
+     
+      </tr>       
+      
+       
+     
+    </tbody>
+  </table>
+
+</form>  
+</div>
+
+</body>
+
+</html>

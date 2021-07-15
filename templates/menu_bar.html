@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang=''>
+
+<head>
+   <meta charset='utf-8'>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   <link rel="stylesheet" href="http://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+   <link rel="stylesheet" href= "{{ url_for('static',filename='styles.css') }}">
+   
+   <title>DTELCORP-AI</title>
+</head>
+
+<body>
+
+<div class="menu-bar">
+<ul>
+    <a href="/">
+    <img src="{{ url_for('static',filename='images/logo.png') }}" align="left" height="50px" width="250px"/>
+     </a>    
+ 
+
+   <li><a href="/">HOME</a></li>
+   <li><a href="/about">ABOUT US</a></li>
+   <li><a href="/">AI SERVICES & SOLUTIONS</a>
+	<div class="sub-menu-1">
+	   <ul>
+		<li><a href="/predictions_main">Adv.Analytics</a></li>
+		<li><a href="/vision_main">Vision</a></li>
+		<li><a href="/TA_main">NLP</a></li>
+		<li><a href="/bot_main">Bot Framework</a></li>
+		<li><a href="/verticals_main">Vertical Solutions</a></li>
+		
+	   </ul>
+	</div>
+   </li>
+
+</ul>
+</div>
+</body>
+<html>
