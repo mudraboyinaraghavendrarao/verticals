@@ -45,7 +45,7 @@ import pickle
 
 
 
-app = Flask(__name__)
+app = flask.Flask(__name__, template_folder='templates')
 app.secret_key = "SAIS_AI_9696"
 bootstrap = Bootstrap(app)
 
@@ -202,107 +202,6 @@ def predict_view():
 #----------------------------Form Recognizer----------------------------------#
 
 #------------------------------Medical Image----------------------------------#
-@app.route('/medical1',methods=['GET', 'POST'])   
-def medical1():
-    
-    global med_model,med_title,f_list
-    
-    if request.form.get("Medical1"):
-        med_model = load_model('static/Medical/vgg16_CT.h5')
-        med_title="MRI Brain Tumor Detection"
-        
-        main_path="static/Medical/MRI1/Testing/"
-        category=["Glioma Tumor","Meningioma Tumor","Normal","Pituitary Tumor"]
-        final_path=[main_path+category[0],main_path+category[1],main_path+category[2],main_path+category[3]]
-                
-    elif request.form.get("Medical2"):
-        med_model = load_model('static/Medical/vgg16_CT.h5')
-        med_title="CT Lung Cancer Detection"
-        
-        main_path="static/Medical/CT/test/"
-        category=["Adeno Carcinoma","Large Cell Carcinoma","Normal","Squamous Cell Carcinoma"]
-        final_path=[main_path+category[0],main_path+category[1],main_path+category[2],main_path+category[3]]
-        
-    elif request.form.get("Medical3"):
-        med_model = load_model('static/Medical/vgg16_CT.h5')
-        med_title="X-Ray Pneumonia Detection"
-        
-        main_path="C:/Users/Sravan/Desktop/test/Medical/CT/test/"
-        category=["adenocarcinoma","large.cell.carcinoma","normal","squamous.cell.carcinoma"]
-        final_path=[main_path+category[0],main_path+category[1],main_path+category[2],main_path+category[3]]
-    
-    f_list = []
-    for i in range(0,4):
-        try: 
-            j=0
-            for f in os.listdir(final_path[i]):
-                if j<5:
-                    f=final_path[i]+'/'+f
-                    f_list.append(f) 
-                j=j+1 
-        except: 
-            return render_template("medical.html")
-    
-    return render_template("medical1.html",med_title=med_title,f_list=f_list,category=category)
-
-@app.route('/medical2',methods=['GET', 'POST'])   
-def medical2():
-    return render_template("medical2.html",med_title=med_title,f_list=f_list)
-
-@app.route('/medical3',methods=['GET', 'POST'])   
-def medical3():
-    
-    med_image = request.files['file'] 
-    img_path="static/Medical/"+med_image.filename    
-          
-    try:
-        med_image.save(img_path)
-    except:
-        med_image = med_image.convert("RGB")
-        med_image.save(img_path)
-    
-    med_image = image.load_img(img_path, target_size=(224,224))
-    med_image = image.img_to_array(med_image)
-    med_image = np.expand_dims(med_image, axis=0)
-    med_image = preprocess_input(med_image)
-    result = med_model.predict(med_image)
-    result=np.argmax(result)
-    print(result)
-    
-    if med_title=="MRI Brain Tumor Detection":
-        if result == 0:
-            prediction = 'The given sample is processed with our diagnostic tool and tumor is detected in it.Tumor class for the given sample is Glioma Tumor.'
-        elif result == 1:
-            prediction = 'The given sample is processed with our diagnostic tool and tumor is detected in it.Tumor class for the given sample is Meningioma Tumor.'
-        elif result == 2:
-            prediction = 'The given sample is processed with our diagnostic tool and no tumor is detected in it.'
-        elif result == 3:
-            prediction = 'The given sample is processed with our diagnostic tool and tumor is detected in it.Tumor class for the given sample is Pituitary Tumor.'
-            
-    elif med_title=="CT Lung Cancer Detection":
-        if result == 0:
-            prediction = 'The given sample is processed with our diagnostic tool and tumor is detected in it.Tumor class for the given sample is Adeno Carcinoma.'
-        elif result == 1:
-            prediction = 'The given sample is processed with our diagnostic tool and tumor is detected in it.Tumor class for the given sample is Large Cell Carcinoma'
-        elif result == 2:
-            prediction = 'The given sample is processed with our diagnostic tool and no tumor is detected in it.'
-        elif result == 3:
-            prediction = 'The given sample is processed with our diagnostic tool and tumor is detected in it.Tumor class for the given sample is Squamous Cell Carcinoma'
-            
-    elif med_title=="X-Ray Pneumonia Detection":
-        if result == 0:
-            prediction = 'glioma'
-        elif result == 1:
-            prediction = 'meningioma'
-        elif result == 2:
-            prediction = 'normal'
-        elif result == 3:
-            prediction = 'pituitary'
-    
-    #given_img="Medical/scan.jpg"
-    
-    return render_template("medical2.html",prediction=prediction,med_title=med_title,img_path=img_path,f_list=f_list)
-
 
 #--------------------------------Verticals------------------------------------#
 
