@@ -234,8 +234,8 @@ def transportation():
 def vs1():
     global vs_df,vs_model,vs_title,vs_x,vs_y,vs_Target,method,sample_uri
     if request.form.get("Insurance_Claim1"):
-        vs_df=pd.read_csv("data/insurance_train.csv")
-        vs_model = pickle.load(open('data/insurance_train.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/insurance_train.csv")
+        vs_model = pickle.load(open(f'data/insurance_train.pkl', 'rb'))
         vs_title="Insurance Claim Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Insurance Claim"],axis=1)
@@ -244,8 +244,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim2"):
-        vs_df=pd.read_csv("data/diabetes.csv")
-        vs_model = pickle.load(open('data/diabetes.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/diabetes.csv")
+        vs_model = pickle.load(open(f'data/diabetes.pkl', 'rb'))
         vs_title="Diabetes Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Outcome"],axis=1)
@@ -254,8 +254,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim3"):
-        vs_df=pd.read_csv("data/winequality.csv")
-        vs_model = pickle.load(open('data/winequality.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/winequality.csv")
+        vs_model = pickle.load(open(f'data/winequality.pkl', 'rb'))
         vs_title="Winequality Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Quality_Rating"],axis=1)
@@ -264,7 +264,7 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim4"):
-        vs_df=pd.read_csv("data/mall_data.csv") 
+        vs_df=pd.read_csv(f"data/mall_data.csv") 
         
         kmeans = cluster.KMeans(n_clusters=3)
         vs_model=kmeans.fit(vs_df)
@@ -276,7 +276,7 @@ def vs1():
         method="clustering"
         
     elif request.form.get("Insurance_Claim5"):
-        vs_df=pd.read_csv("data/FlyerData.csv")  
+        vs_df=pd.read_csv(f"data/FlyerData.csv")  
         
         kmeans = cluster.KMeans(n_clusters=3)
         vs_model=kmeans.fit(vs_df)
@@ -288,20 +288,20 @@ def vs1():
         method="clustering"
        
     elif request.form.get("Insurance_Claim6"):
-        vs_model = pickle.load(open('data/order_quantity.pkl', 'rb'))
+        vs_model = pickle.load(open(f'data/order_quantity.pkl', 'rb'))
         vs_title="Demand Forecast"
         method="forecasting"
         return render_template('order_quantity.html',vs_title=vs_title)
     
     elif request.form.get("Insurance_Claim7"):
-        vs_model = pickle.load(open('data/sales_forecast.pkl', 'rb'))
+        vs_model = pickle.load(open(f'data/sales_forecast.pkl', 'rb'))
         vs_title="Sales Forecast"
         method="forecasting"
         return render_template('sales_forecast.html',vs_title=vs_title)
     
     elif request.form.get("Insurance_Claim8"):
-        vs_df=pd.read_csv("data/cancer.csv")
-        vs_model = pickle.load(open('data/cancer.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/cancer.csv")
+        vs_model = pickle.load(open(f'data/cancer.pkl', 'rb'))
         vs_title="Breast Cancer Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Class"],axis=1)
@@ -310,8 +310,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim9"):
-        vs_df=pd.read_csv("data/Appointment No Show.csv")
-        vs_model = pickle.load(open('data/Appointment No Show.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Appointment No Show.csv")
+        vs_model = pickle.load(open(f'data/Appointment No Show.pkl', 'rb'))
         vs_title="Appointment No Show"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["No-show"],axis=1)
@@ -320,8 +320,8 @@ def vs1():
         method="prediction"
     
     elif request.form.get("Insurance_Claim10"):
-        vs_df=pd.read_csv("data/Predictive Maintenance.csv")
-        vs_model = pickle.load(open('data/Predictive Maintenance.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Predictive Maintenance.csv")
+        vs_model = pickle.load(open(f'data/Predictive Maintenance.pkl', 'rb'))
         vs_title="Predictive Maintenance"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["time_to fail"],axis=1)
@@ -330,8 +330,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim11"):
-        vs_df=pd.read_csv("data/readmission_prevention.csv")
-        vs_model = pickle.load(open('data/readmission_prevention.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/readmission_prevention.csv")
+        vs_model = pickle.load(open(f'data/readmission_prevention.pkl', 'rb'))
         vs_title="Hospital Readmission"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Readmitted"],axis=1)
@@ -340,8 +340,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim12"):
-        vs_df=pd.read_csv("data/Banking_Camp.csv")
-        vs_model = pickle.load(open('data/Banking_Camp.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Banking_Camp.csv")
+        vs_model = pickle.load(open(f'data/Banking_Camp.pkl', 'rb'))
         vs_title="Marketing Campaign"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Deposit"],axis=1)
@@ -350,8 +350,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim13"):
-        vs_df=pd.read_csv("data/fraud.csv")
-        vs_model = pickle.load(open('data/fraud.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/fraud.csv")
+        vs_model = pickle.load(open(f'data/fraud.pkl', 'rb'))
         vs_title="Fraud Detection"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["IsFradulent"],axis=1)
@@ -360,8 +360,8 @@ def vs1():
         method="prediction"   
     
     elif request.form.get("Insurance_Claim14"):
-        vs_df=pd.read_csv("data/Rental_Cab_Price.csv")
-        vs_model = pickle.load(open('data/Rental_Cab_Price.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Rental_Cab_Price.csv")
+        vs_model = pickle.load(open(f'data/Rental_Cab_Price.pkl', 'rb'))
         vs_title="Rental Cab Price"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Price"],axis=1)
@@ -370,8 +370,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim15"):
-        vs_df=pd.read_csv("data/Credit_Card_Approval.csv")
-        vs_model = pickle.load(open('data/Credit_Card_Approval.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Credit_Card_Approval.csv")
+        vs_model = pickle.load(open(f'data/Credit_Card_Approval.pkl', 'rb'))
         vs_title="Credit Card Approval"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Approved"],axis=1)
@@ -380,8 +380,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim16"):
-        vs_df=pd.read_csv("data/Estimated_Trip_Time.csv")
-        vs_model = pickle.load(open('data/Estimated_Trip_Time.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Estimated_Trip_Time.csv")
+        vs_model = pickle.load(open(f'data/Estimated_Trip_Time.pkl', 'rb'))
         vs_title="Estimated Trip Time"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Estimated_Trip_Duration"],axis=1)
@@ -390,8 +390,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim17"):
-        vs_df=pd.read_csv("data/appliances_energy_predictions.csv")
-        vs_model = pickle.load(open('data/appliances_energy_predictions.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/appliances_energy_predictions.csv")
+        vs_model = pickle.load(open(f'data/appliances_energy_predictions.pkl', 'rb'))
         vs_title="Appliances Energy Predictions"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Energy in kw"],axis=1)
@@ -400,8 +400,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim18"):
-        vs_df=pd.read_csv("data/model_interst_rate.csv")
-        vs_model = pickle.load(open('data/model_interst_rate.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/model_interst_rate.csv")
+        vs_model = pickle.load(open(f'data/model_interst_rate.pkl', 'rb'))
         vs_title="Bank Interest Rate"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["FedFundsRate"],axis=1)
@@ -410,8 +410,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim19"):
-        vs_df=pd.read_csv("data/vehicle_lithium_battery.csv")
-        vs_model = pickle.load(open('data/vehicle_lithium_battery.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/vehicle_lithium_battery.csv")
+        vs_model = pickle.load(open(f'data/vehicle_lithium_battery.pkl', 'rb'))
         vs_title="Vehicle Lithium Battery"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Cycle"],axis=1)
@@ -420,8 +420,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim20"):
-        vs_df=pd.read_csv("data/detecting_telecom_attack.csv")
-        vs_model = pickle.load(open('data/detecting_telecom_attack.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/detecting_telecom_attack.csv")
+        vs_model = pickle.load(open(f'data/detecting_telecom_attack.pkl', 'rb'))
         vs_title="Detecting Telecom Attack"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Attack Type"],axis=1)
@@ -430,8 +430,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim21"):
-        vs_df=pd.read_csv("data/bike_rental.csv")
-        vs_model = pickle.load(open('data/bike_rental.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/bike_rental.csv")
+        vs_model = pickle.load(open(f'data/bike_rental.pkl', 'rb'))
         vs_title="Bike Rental"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Rent_count"],axis=1)
@@ -440,8 +440,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim22"):
-        vs_df=pd.read_csv("data/fault_severity.csv")
-        vs_model = pickle.load(open('data/fault_severity.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/fault_severity.csv")
+        vs_model = pickle.load(open(f'data/fault_severity.pkl', 'rb'))
         vs_title="Fault Severity"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Fault Severity"],axis=1)
@@ -450,8 +450,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim23"):
-        vs_df=pd.read_csv("data/telecom_churn.csv")
-        vs_model = pickle.load(open('data/telecom_churn.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/telecom_churn.csv")
+        vs_model = pickle.load(open(f'data/telecom_churn.pkl', 'rb'))
         vs_title="Telecom Churn"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Churn"],axis=1)
@@ -460,8 +460,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim24"):
-        vs_df=pd.read_csv("data/hr_attrition.csv")
-        vs_model = pickle.load(open('data/hr_attrition.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/hr_attrition.csv")
+        vs_model = pickle.load(open(f'data/hr_attrition.pkl', 'rb'))
         vs_title="HR Attrition"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Attrition"],axis=1)
@@ -470,8 +470,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim25"):
-        vs_df=pd.read_csv("data/flight_delay.csv")
-        vs_model = pickle.load(open('data/flight_delay.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/flight_delay.csv")
+        vs_model = pickle.load(open(f'data/flight_delay.pkl', 'rb'))
         vs_title="Flight Delay"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["ArrDelay"],axis=1)
@@ -480,8 +480,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim26"):
-        vs_df=pd.read_csv("data/delivery_intime.csv")
-        vs_model = pickle.load(open('data/delivery_intime.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/delivery_intime.csv")
+        vs_model = pickle.load(open(f'data/delivery_intime.pkl', 'rb'))
         vs_title="Delivery Intime"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Intime"],axis=1)
@@ -490,8 +490,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim27"):
-        vs_df=pd.read_csv("data/solar_energy.csv")
-        vs_model = pickle.load(open('data/solar_energy.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/solar_energy.csv")
+        vs_model = pickle.load(open(f'data/solar_energy.pkl', 'rb'))
         vs_title="Solar Energy Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Solar energy"],axis=1)
@@ -500,8 +500,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim28"):
-        vs_df=pd.read_csv("data/Gas_Demand.csv")
-        vs_model = pickle.load(open('data/Gas_Demand.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Gas_Demand.csv")
+        vs_model = pickle.load(open(f'data/Gas_Demand.pkl', 'rb'))
         vs_title="Gas Demand"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Consumption MMCF"],axis=1)
@@ -510,8 +510,8 @@ def vs1():
         method="prediction"
     
     elif request.form.get("Insurance_Claim29"):
-        vs_df=pd.read_csv("data/Car_sales.csv")
-        vs_model = pickle.load(open('data/Car_sales.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Car_sales.csv")
+        vs_model = pickle.load(open(f'data/Car_sales.pkl', 'rb'))
         vs_title="Car Sales"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Sales_in_Thousands"],axis=1)
@@ -520,8 +520,8 @@ def vs1():
         method="prediction"
     
     elif request.form.get("Insurance_Claim30"):
-        vs_df=pd.read_csv("data/Predict_Loan_Amount.csv")
-        vs_model = pickle.load(open('data/Predict_Loan_Amount.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Predict_Loan_Amount.csv")
+        vs_model = pickle.load(open(f'data/Predict_Loan_Amount.pkl', 'rb'))
         vs_title="Predict Loan Amount"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["LoanAmount"],axis=1)
@@ -530,8 +530,8 @@ def vs1():
         method="prediction"
     
     elif request.form.get("Insurance_Claim31"):
-        vs_df=pd.read_csv("data/Metro_Traffic_Volume.csv")
-        vs_model = pickle.load(open('data/Metro_Traffic_Volume.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Metro_Traffic_Volume.csv")
+        vs_model = pickle.load(open(f'data/Metro_Traffic_Volume.pkl', 'rb'))
         vs_title="Metro Traffic Volume"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Traffic_Volume"],axis=1)
@@ -540,8 +540,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim32"):
-        vs_df=pd.read_csv("data/Energy_Efficiency.csv")
-        vs_model = pickle.load(open('data/Energy_Efficiency.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Energy_Efficiency.csv")
+        vs_model = pickle.load(open(f'data/Energy_Efficiency.pkl', 'rb'))
         vs_title="Energy Efficiency"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Heating Load"],axis=1)
@@ -550,8 +550,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim33"):
-        vs_df=pd.read_csv("data/motor_insurance_policy.csv")
-        vs_model = pickle.load(open('data/motor_insurance_policy.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/motor_insurance_policy.csv")
+        vs_model = pickle.load(open(f'data/motor_insurance_policy.pkl', 'rb'))
         vs_title="Motor Insurance Policy"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Sale"],axis=1)
@@ -560,8 +560,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim34"):
-        vs_df=pd.read_csv("data/online_shoppers_intention.csv")
-        vs_model = pickle.load(open('data/online_shoppers_intention.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/online_shoppers_intention.csv")
+        vs_model = pickle.load(open(f'data/online_shoppers_intention.pkl', 'rb'))
         vs_title="Online Shoppers Intention"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Revenue"],axis=1)
@@ -570,8 +570,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim35"):
-        vs_df=pd.read_csv("data/cruise_ship.csv")
-        vs_model = pickle.load(open('data/cruise_ship.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/cruise_ship.csv")
+        vs_model = pickle.load(open(f'data/cruise_ship.pkl', 'rb'))
         vs_title="Ship Capacity"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Crew"],axis=1)
@@ -580,8 +580,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim36"):
-        vs_df=pd.read_csv("data/Loan_Offer_Response.csv")
-        vs_model = pickle.load(open('data/Loan_Offer_Response.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Loan_Offer_Response.csv")
+        vs_model = pickle.load(open(f'data/Loan_Offer_Response.pkl', 'rb'))
         vs_title="Loan Offer Response"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Accepted"],axis=1)
@@ -590,8 +590,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim37"):
-        vs_df=pd.read_csv("data/Commodity_Price_Prediction.csv")
-        vs_model = pickle.load(open('data/Commodity_Price_Prediction.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Commodity_Price_Prediction.csv")
+        vs_model = pickle.load(open(f'data/Commodity_Price_Prediction.pkl', 'rb'))
         vs_title="Commodity Price Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["ModalPrice"],axis=1)
@@ -600,8 +600,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim38"):
-        vs_df=pd.read_csv("data/Vehicle_Sale_price.csv")
-        vs_model = pickle.load(open('data/Vehicle_Sale_price.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Vehicle_Sale_price.csv")
+        vs_model = pickle.load(open(f'data/Vehicle_Sale_price.pkl', 'rb'))
         vs_title="Vehicle Sale Price"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Selling_Price"],axis=1)
@@ -610,8 +610,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim39"):
-        vs_df=pd.read_csv("data/mutual_fund_rating.csv")
-        vs_model = pickle.load(open('data/mutual_fund_rating.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/mutual_fund_rating.csv")
+        vs_model = pickle.load(open(f'data/mutual_fund_rating.pkl', 'rb'))
         vs_title="Mutual Fund Rating"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Overall_rating"],axis=1)
@@ -620,8 +620,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim40"):
-        vs_df=pd.read_csv("data/yield_prediction.csv")
-        vs_model = pickle.load(open('data/yield_prediction.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/yield_prediction.csv")
+        vs_model = pickle.load(open(f'data/yield_prediction.pkl', 'rb'))
         vs_title="Yield Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Yield"],axis=1)
@@ -630,8 +630,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim41"):
-        vs_df=pd.read_csv("data/Forex_Closing_Price.csv")
-        vs_model = pickle.load(open('data/Forex_Closing_Price.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Forex_Closing_Price.csv")
+        vs_model = pickle.load(open(f'data/Forex_Closing_Price.pkl', 'rb'))
         vs_title="Forex Closing Price"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Close"],axis=1)
@@ -640,8 +640,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim42"):
-        vs_df=pd.read_csv("data/Airline_Fuel_Flow.csv")
-        vs_model = pickle.load(open('data/Airline_Fuel_Flow.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Airline_Fuel_Flow.csv")
+        vs_model = pickle.load(open(f'data/Airline_Fuel_Flow.pkl', 'rb'))
         vs_title="Airline Fuel Flow"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Fuel Flow"],axis=1)
@@ -650,8 +650,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim43"):
-        vs_df=pd.read_csv("data/Steel_Defect.csv")
-        vs_model = pickle.load(open('data/Steel_Defect.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Steel_Defect.csv")
+        vs_model = pickle.load(open(f'data/Steel_Defect.pkl', 'rb'))
         vs_title="Steel Manufacturing Defect"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Other_Faults"],axis=1)
@@ -660,8 +660,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim44"):
-        vs_df=pd.read_csv("data/Fertilizer_Prediction.csv")
-        vs_model = pickle.load(open('data/Fertilizer_Prediction.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Fertilizer_Prediction.csv")
+        vs_model = pickle.load(open(f'data/Fertilizer_Prediction.pkl', 'rb'))
         vs_title="Fertilizer Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Fertilizer Name"],axis=1)
@@ -670,8 +670,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim46"):
-        vs_df=pd.read_csv("data/fraud_online.csv")
-        vs_model = pickle.load(open('data/fraud_online.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/fraud_online.csv")
+        vs_model = pickle.load(open(f'data/fraud_online.pkl', 'rb'))
         vs_title="Online Fraud Transcation"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["IsFraud"],axis=1)
@@ -680,8 +680,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim47"):
-        vs_df=pd.read_csv("data/Supermarket_Revenue_Prediction.csv")
-        vs_model = pickle.load(open('data/Supermarket_Revenue_Prediction.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Supermarket_Revenue_Prediction.csv")
+        vs_model = pickle.load(open(f'data/Supermarket_Revenue_Prediction.pkl', 'rb'))
         vs_title="Supermarket Revenue Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Gross Income"],axis=1)
@@ -690,8 +690,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim48"):
-        vs_df=pd.read_csv("data/House Value.csv")
-        vs_model = pickle.load(open('data/House Value.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/House Value.csv")
+        vs_model = pickle.load(open(f'data/House Value.pkl', 'rb'))
         vs_title="House Value Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Median House Value"],axis=1)
@@ -700,8 +700,8 @@ def vs1():
         method="prediction"
     
     elif request.form.get("Insurance_Claim49"):
-        vs_df=pd.read_csv("data/Airline_Satisfaction.csv")
-        vs_model = pickle.load(open('data/Airline_Satisfaction.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Airline_Satisfaction.csv")
+        vs_model = pickle.load(open(f'data/Airline_Satisfaction.pkl', 'rb'))
         vs_title="Airline Satisfaction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Satisfaction"],axis=1)
@@ -710,8 +710,8 @@ def vs1():
         method="prediction"
     
     elif request.form.get("Insurance_Claim50"):
-        vs_df=pd.read_csv("data/Airfare_Prediction.csv")
-        vs_model = pickle.load(open('data/Airfare_Prediction.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Airfare_Prediction.csv")
+        vs_model = pickle.load(open(f'data/Airfare_Prediction.pkl', 'rb'))
         vs_title="Airfare Prediction"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Price"],axis=1)
@@ -720,8 +720,8 @@ def vs1():
         method="prediction"
     
     elif request.form.get("Insurance_Claim51"):
-        vs_df=pd.read_csv("data/Voice Quality.csv")
-        vs_model = pickle.load(open('data/Voice Quality.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Voice Quality.csv")
+        vs_model = pickle.load(open(f'data/Voice Quality.pkl', 'rb'))
         vs_title="Voice Quality"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Rating"],axis=1)
@@ -730,8 +730,8 @@ def vs1():
         method="prediction"
     
     elif request.form.get("Insurance_Claim52"):
-        vs_df=pd.read_csv("data/Network Traffic.csv")
-        vs_model = pickle.load(open('data/Network Traffic.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Network Traffic.csv")
+        vs_model = pickle.load(open(f'data/Network Traffic.pkl', 'rb'))
         vs_title="Network Traffic"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Packets"],axis=1)
@@ -740,8 +740,8 @@ def vs1():
         method="prediction"
      
     elif request.form.get("Insurance_Claim53"):
-        vs_df=pd.read_csv("data/5g Signal Failure Detection.csv")
-        vs_model = pickle.load(open('data/5g Signal Failure Detection.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/5g Signal Failure Detection.csv")
+        vs_model = pickle.load(open(f'data/5g Signal Failure Detection.pkl', 'rb'))
         vs_title="5g Signal Failure Detection"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Label"],axis=1)
@@ -750,8 +750,8 @@ def vs1():
         method="prediction"
     
     elif request.form.get("Insurance_Claim54"):
-        vs_df=pd.read_csv("data/Bandwidth Management.csv")
-        vs_model = pickle.load(open('data/Bandwidth Management.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Bandwidth Management.csv")
+        vs_model = pickle.load(open(f'data/Bandwidth Management.pkl', 'rb'))
         vs_title="Bandwidth Management"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Bandwidth Available For OTT"],axis=1)
@@ -760,8 +760,8 @@ def vs1():
         method="prediction"
         
     elif request.form.get("Insurance_Claim55"):
-        vs_df=pd.read_csv("data/Predict Call Drop.csv")
-        vs_model = pickle.load(open('data/Predict Call Drop.pkl', 'rb'))
+        vs_df=pd.read_csv(f"data/Predict Call Drop.csv")
+        vs_model = pickle.load(open(f'data/Predict Call Drop.pkl', 'rb'))
         vs_title="Predict Call Drop"
         vs_df = vs_df.fillna(vs_df.median())
         vs_x = vs_df.drop(["Call Dropped"],axis=1)
