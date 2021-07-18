@@ -46,8 +46,6 @@ import pickle
 
 
 app = flask.Flask(__name__, template_folder='templates')
-app.secret_key = "SAIS_AI_9696"
-bootstrap = Bootstrap(app)
 
 @app.route('/',methods=['GET', 'POST'])  
 def Text():  
