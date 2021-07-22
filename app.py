@@ -20,13 +20,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 import os
 
-from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
-#from tensorflow.keras.applications.resnet50 import preprocess_input
-from tensorflow.keras.preprocessing.image import ImageDataGenerator,load_img
-
-from keras.models import load_model
-from keras.preprocessing import image
-
 
 from sklearn.metrics import silhouette_samples, silhouette_score
 from sklearn.cluster import KMeans
