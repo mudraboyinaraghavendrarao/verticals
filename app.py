@@ -193,7 +193,146 @@ def predict_view():
 #----------------------------Form Recognizer----------------------------------#
 
 #------------------------------Medical Image----------------------------------#
+#--------------------------------TEXT-----------------------------------------#
+# text_translator
+@app.route('/text_translator')
+def text_translator():
+	return render_template('text_translator.html')
 
+@app.route('/text_translator1',methods = ['POST','GET'])
+def text_translator1():
+    text_original = request.form['message']
+    to_lang = request.form.get('to_lang')
+    
+    try:
+        try:
+            try:
+                text_translated=ts.translate_html(text_original, translator=ts.google, to_language=to_lang, translator_params={})      
+            except:
+                blob = TextBlob(text_original)
+                text_translated=blob.translate(to=to_lang)
+        except:
+            text_translated=translator.translate(text_original,dest=to_lang).text
+    except:
+        err_message="Something went wrong,Please try again some time."
+        return render_template('text_translator.html',err_message=err_message)
+    
+    return render_template('text_translator.html',text_original=text_original,text_translated=text_translated)
+
+# text_sentiment
+@app.route('/text_sentiment')
+def text_sentiment():
+	return render_template('text_sentiment.html')
+
+@app.route('/text_sentiment1',methods= ['POST','GET'])
+def text_sentiment1():
+    text_original = request.form['message']
+    sen_obj = SentimentIntensityAnalyzer() 
+    
+    sentiment_score = sen_obj.polarity_scores(text_original) 
+    if sentiment_score['compound'] >= 0.05 :
+        sentiment="Positive"
+    elif sentiment_score['compound'] <= - 0.05 :
+        sentiment="Negative"
+    else :
+        sentiment="Neutral"
+    return render_template('text_sentiment.html',sentiment=sentiment)
+
+# text_summarizer
+@app.route('/text_summarizer')
+def text_summarizer():
+	return render_template('text_summarizer.html')
+
+@app.route('/text_summarizer1',methods= ['POST','GET'])
+def text_summarizer1():
+    text_original = request.form['message']
+    try:
+        text_summarized = summarize(text_original)  
+        if text_summarized=="":
+            text_summarized=text_original        
+    except:
+        err_message="Input must have more than one sentence"
+        return render_template('text_summarizer.html',err_message=err_message)
+       
+    return render_template('text_summarizer.html',text_original=text_original,text_summarized=text_summarized)
+
+# text_analyser
+@app.route('/text_analyser')
+def text_analyser():
+	return render_template('text_analyser.html')
+
+@app.route('/text_analyser1',methods=['POST','GET'])
+def text_analyser1():
+    text_original = request.form['message']
+    text_keywords = keywords(text_original)
+    text_emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", text_original)
+    text_urls = re.findall('https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+', text_original)
+    
+    blob = TextBlob(text_original)
+    nouns = list()
+    text_about= list()
+    for word, tag in blob.tags:
+        if tag == 'NN':
+            nouns.append(word.lemmatize())
+    
+    for item in random.sample(nouns, len(nouns)):
+        word = Word(item)
+        text_about.append(word.pluralize()) 
+    
+    return render_template('text_analyser.html',text_original=text_original,text_keywords=text_keywords,text_emails=text_emails,text_urls=text_urls,text_about=text_about)
+
+def text_to_speech(text, gender):
+    
+    voice_dict = {'Male': 0, 'Female': 1}
+    code = voice_dict[gender]
+
+    engine = pyttsx3.init()
+
+    # Setting up voice rate
+    engine.setProperty('rate', 125)
+
+    # Setting up volume level  between 0 and 1
+    engine.setProperty('volume', 0.8)
+
+    # Change voices: 0 for male and 1 for female
+    voices = engine.getProperty('voices')
+    engine.setProperty('voice', voices[code].id)
+
+    engine.say(text)
+    engine.runAndWait()
+
+@app.route('/text_speech', methods=['POST', 'GET'])
+@cross_origin()
+def homepage():
+    try:
+        if request.method == 'POST':
+            text = request.form['speech']
+            gender = request.form['voices']
+            text_to_speech(text, gender)
+            return render_template('text_speech.html')
+        else:
+            return render_template('text_speech.html')
+    except:
+        return render_template('text_speech.html')
+
+# speech tp text
+@app.route('/speech_text')
+def speech_text():
+	return render_template('speech_text.html')
+
+@app.route('/speech_text1',methods= ['POST','GET'])
+def speech_text1():
+    try:
+        file = request.files["file"]
+        recognizer = sr.Recognizer()
+        audioFile = sr.AudioFile(file)
+        with audioFile as source:
+            data = recognizer.record(source)
+        transcript = recognizer.recognize_google(data, key=None)
+    
+        return render_template('speech_text.html', transcript=transcript)
+    except:
+        return render_template('speech_text.html')
 #--------------------------------Verticals------------------------------------#
 
 @app.route('/medical',methods=['GET', 'POST'])   
