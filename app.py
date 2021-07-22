@@ -20,7 +20,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 import os
 
-
 from sklearn.metrics import silhouette_samples, silhouette_score
 from sklearn.cluster import KMeans
 
@@ -31,7 +30,27 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 
-  
+from googletrans import Translator, constants
+from textblob import TextBlob
+from gtts import gTTS 
+from PIL import Image
+import pickle
+import speech_recognition as sr
+
+import translators as ts
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+
+from gensim.summarization import summarize,keywords
+
+from textblob import Word
+import random
+import re 
+import pyttsx3
+from flask_cors import cross_origin
+
+r = sr.Recognizer()   
+translator = Translator()
+
 
 import pickle
 
@@ -51,6 +70,10 @@ def about():
 @app.route('/verticals_main',methods=['GET', 'POST'])  
 def recom_main():  
     return render_template("verticals_main.html") 
+
+@app.route('/TA_main',methods=['GET', 'POST'])  
+def TA_main():  
+    return render_template("TA_main.html") 
 
 #------------------------------Prediction-------------------------------------#
 
@@ -193,6 +216,7 @@ def predict_view():
 #----------------------------Form Recognizer----------------------------------#
 
 #------------------------------Medical Image----------------------------------#
+
 #--------------------------------TEXT-----------------------------------------#
 # text_translator
 @app.route('/text_translator')
@@ -333,6 +357,7 @@ def speech_text1():
         return render_template('speech_text.html', transcript=transcript)
     except:
         return render_template('speech_text.html')
+
 #--------------------------------Verticals------------------------------------#
 
 @app.route('/medical',methods=['GET', 'POST'])   
