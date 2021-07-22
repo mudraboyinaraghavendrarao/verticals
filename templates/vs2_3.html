@@ -1,0 +1,120 @@
+{% include "menu_bar.html" %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>SAIS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Page level plugin JavaScript--><script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+
+</head>
+
+<body class="bg-light"> 
+<br>  
+    <h2 align="center">{{vs_title}}</h2>
+    
+    <div class="container"> 
+       
+         
+         
+             <div class="row"> 
+                 <div class="table-responsive" style="height: 500px;overflow: scroll;">
+                    <table class="table table-hover">
+                    
+                                
+                        {{vs_df | safe}}
+                                
+                    </table>
+                </div>        	 
+             </div>
+             
+             <br><br>
+             
+             <div class="row"> 
+                 <div class="col-sm-6" align="center">
+                     {% if fig_vs1 != "None" %}
+                         {{fig_vs1 | safe}}
+                     {% endif %}
+                 </div>
+                 <div class="col-sm-6" align="center">
+                     {% if fig_vs2 != "None" %}
+                         {{fig_vs2 | safe}}
+                     {% endif %}
+                 </div>
+             </div>
+             <br>
+             <div class="row"> 
+                 <div class="col-sm-6" align="center">
+                     {% if fig_vs3 != "None" %}
+                         {{fig_vs3 | safe}}
+                     {% endif %}
+                 </div>
+                 <div class="col-sm-6" align="center">
+                     {% if fig_vs4 != "None" %}
+                         {{fig_vs4 | safe}}
+                     {% endif %}
+                 </div>
+             </div>
+             
+             <div class="row"> 
+                 <div class="col-sm-6" align="center">
+                     {% if fig_vs5 != "None" %}
+                         {{fig_vs5 | safe}}
+                     {% endif %}
+                 </div>
+                 <div class="col-sm-6" align="center">
+                     {% if fig_vs6 != "None" %}
+                         {{fig_vs6 | safe}}
+                     {% endif %}
+                 </div>
+             </div>
+             
+             
+            {% if method =="classification." %}
+                 <div align='center' >
+                     {% include "Bar_Chart.html" %}
+                 </div>                
+            {% endif %}
+            
+            {% if method =="regression." %}
+                  <div align='center' >
+                     {% include "Scatter_2D.html" %}
+                 </div>
+            {% endif %}
+                 
+            {% if method =="clustering." %}            
+                 <div align='center' >
+                     {% include "Hist_Pred.html" %}
+                 </div>
+                 
+                 <div align='center' >
+                     {% include "Scatter_3D.html" %}
+                 </div>               
+            {% endif %}
+            
+                 
+                 	 
+             </div>   
+            
+        <br><br> <br><br>
+                 
+    </div>
+
+</body>
+</html>
+
+<script>
+    $(document).ready(function() {
+          $('#dataTable').DataTable();
+    });
+</script>

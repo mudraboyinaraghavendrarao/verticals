@@ -1,0 +1,106 @@
+{% include "menu_bar.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<div class="jumbotron text-center" height="20px">
+  <h2>Vertical Solutions</h2>
+  
+</div>
+  
+<div class="container">
+  <div class="row">
+      
+            <div class="col-sm-3">
+              <div class="card" style="width: 18rem;height:22rem">  
+              <img src="{{ url_for('static',filename='images/healthcare.png') }}" height="150" class="card-img-top" >
+                <div class="card-body">
+                  <h5 class="card-title">Healthcare</h5>
+                  <p class="card-text">Find healthcare solutions such as detecting disease, and predicting hospital readmissions.</p>
+                  <a href="/healthcare" class="stretched-link"></a>
+                </div>
+        	  </div>
+            </div>
+       
+           <div class="col-sm-3">
+             <div class="card" style="width: 18rem;height:22rem"> 
+             <img src="{{ url_for('static',filename='images/finance.png') }}" height="150" class="card-img-top" > 
+              <div class="card-body">
+                <h5 class="card-title">Finance</h5>
+                <p class="card-text">Find finance solutions such as predicting credit risk and monitoring for online fraud.</p>
+                <a href="/finance" class="stretched-link"></a>
+              </div>
+            </div>
+           </div> 
+           
+            <div class="col-sm-3">
+              <div class="card" style="width: 18rem;height:22rem">  
+              <img src="{{ url_for('static',filename='images/retail.png') }}" height="150" class="card-img-top" >
+                <div class="card-body">
+                  <h5 class="card-title">Retail</h5>
+                  <p class="card-text">Find retail solutions such as sales forecasting, predicting customer churn, and developing pricing models.</p>
+                  <a href="/retail" class="stretched-link"></a>
+                </div>
+        	  </div>
+            </div>   
+  
+            <div class="col-sm-3">
+              <div class="card" style="width: 18rem;height:22rem">  
+              <img src="{{ url_for('static',filename='images/manufacturing.png') }}" height="150" class="card-img-top" >
+                <div class="card-body">
+                  <h5 class="card-title">Manufacturing</h5>
+                  <p class="card-text">Find manufacturing solutions such as anticipating equipment maintenance and forecasting energy prices.</p>
+                  <a href="/manufacturing" class="stretched-link"></a>
+                </div>
+        	  </div>
+            </div>
+            
+            <div class="col-sm-3">
+              <div class="card" style="width: 18rem;height:22rem">  
+              <img src="{{ url_for('static',filename='images/telecom.png') }}" height="150" class="card-img-top" >
+                <div class="card-body">
+                  <h5 class="card-title">Telecom</h5>
+                  <p class="card-text">Find Telecom solutions such as predicting fault severity and virus attack during calls.</p>
+                  <a href="/telecom" class="stretched-link"></a>
+                </div>
+        	  </div>
+            </div>
+            
+            <div class="col-sm-3">
+              <div class="card" style="width: 18rem;height:22rem">  
+              <img src="{{ url_for('static',filename='images/energy.png') }}" height="150" class="card-img-top" >
+                <div class="card-body">
+                  <h5 class="card-title">Energy</h5>
+                  <p class="card-text">Find energy solutions such as energy consumption for home appliances and calculate energy efficiency of apartments.</p>
+                  <a href="/energy" class="stretched-link"></a>
+                </div>
+        	  </div>
+            </div>
+            
+            <div class="col-sm-3">
+              <div class="card" style="width: 18rem;height:22rem">  
+              <img src="{{ url_for('static',filename='images/transportation.png') }}" height="150" class="card-img-top" >
+                <div class="card-body">
+                  <h5 class="card-title">Services</h5>
+                  <p class="card-text">Find general solutions such as transportation, agriculture and management.</p>
+                  <a href="/transportation" class="stretched-link"></a>
+                </div>
+        	  </div>
+            </div>
+            
+           
+       
+       
+  </div>
+</div>
+
+</body>
+</html>
+
